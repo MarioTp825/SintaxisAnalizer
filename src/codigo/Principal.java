@@ -17,9 +17,9 @@ import java.nio.file.Paths;
  */
 public class Principal {
     public static void main(String[] args) throws Exception {
-        String ruta1 = "E:/Documentos/NetBeansProjects/AnalizadorLexico/src/codigo/Lexer.flex";
-        String ruta2 = "E:/Documentos/NetBeansProjects/AnalizadorLexico/src/codigo/LexerCup.flex";
-        String[] rutaS = {"-parser", "Sintax", "E:/Documentos/NetBeansProjects/AnalizadorLexico/src/codigo/Sintax.cup"};
+        String ruta1 = "/Users/mariotepe/Documents/UNI/Semestre_7/Compiladores/AnalizadorLexico/src/codigo/Lexer.flex";
+        String ruta2 = "/Users/mariotepe/Documents/UNI/Semestre_7/Compiladores/AnalizadorLexico/src/codigo/LexerCup.flex";
+        String[] rutaS = {"-parser", "Sintax", "/Users/mariotepe/Documents/UNI/Semestre_7/Compiladores/AnalizadorLexico/src/codigo/Sintax.cup"};
         generar(ruta1, ruta2, rutaS);
     }
     public static void generar(String ruta1, String ruta2, String[] rutaS) throws IOException, Exception{
@@ -29,22 +29,23 @@ public class Principal {
         archivo = new File(ruta2);
         JFlex.Main.generate(archivo);
         java_cup.Main.main(rutaS);
-        
-        Path rutaSym = Paths.get("E:/Documentos/NetBeansProjects/AnalizadorLexico/src/codigo/sym.java");
+
+        var path = "/Users/mariotepe/Documents/UNI/Semestre_7/Compiladores/AnalizadorLexico/";
+        Path rutaSym = Paths.get(path + "src/codigo/sym.java");
         if (Files.exists(rutaSym)) {
             Files.delete(rutaSym);
         }
         Files.move(
-                Paths.get("E:/Documentos/NetBeansProjects/AnalizadorLexico/sym.java"), 
-                Paths.get("E:/Documentos/NetBeansProjects/AnalizadorLexico/src/codigo/sym.java")
+                Paths.get(path + "sym.java"),
+                Paths.get(path + "src/codigo/sym.java")
         );
-        Path rutaSin = Paths.get("E:/Documentos/NetBeansProjects/AnalizadorLexico/src/codigo/Sintax.java");
+        Path rutaSin = Paths.get(path + "src/codigo/Sintax.java");
         if (Files.exists(rutaSin)) {
             Files.delete(rutaSin);
         }
         Files.move(
-                Paths.get("E:/Documentos/NetBeansProjects/AnalizadorLexico/Sintax.java"), 
-                Paths.get("E:/Documentos/NetBeansProjects/AnalizadorLexico/src/codigo/Sintax.java")
+                Paths.get(path + "Sintax.java"),
+                Paths.get(path + "src/codigo/Sintax.java")
         );
     }
 }

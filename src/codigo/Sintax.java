@@ -7,20 +7,19 @@
 package codigo;
 
 import java_cup.runtime.Symbol;
+import java_cup.runtime.SymbolFactory;
 
-/** CUP v0.11a beta 20060608 generated parser.
-  * @version Mon Jun 10 02:31:02 CDT 2019
-  */
 public class Sintax extends java_cup.runtime.lr_parser {
 
-  /** Default constructor. */
   public Sintax() {super();}
 
   /** Constructor which sets the default scanner. */
   public Sintax(java_cup.runtime.Scanner s) {super(s);}
 
   /** Constructor which sets the default scanner. */
-  public Sintax(java_cup.runtime.Scanner s, java_cup.runtime.SymbolFactory sf) {super(s,sf);}
+//  public Sintax(java_cup.runtime.Scanner s, java_cup.runtime.SymbolFactory sf) {
+//    super(s, sf);
+//  }
 
   /** Production table. */
   protected static final short _production_table[][] = 
@@ -272,6 +271,34 @@ public class Sintax extends java_cup.runtime.lr_parser {
         return this.s;
 }
 
+  public SymbolFactory getSymbolFactory() {
+    return new SymbolFactory() {
+      @Override
+      public Symbol newSymbol(String s, int i, Symbol symbol, Symbol symbol1, Object o) {
+        return null;
+      }
+
+      @Override
+      public Symbol newSymbol(String s, int i, Symbol symbol, Symbol symbol1) {
+        return null;
+      }
+
+      @Override
+      public Symbol newSymbol(String s, int i, Object o) {
+        return null;
+      }
+
+      @Override
+      public Symbol newSymbol(String s, int i) {
+        return null;
+      }
+
+      @Override
+      public Symbol startSymbol(String s, int i, int i1) {
+        return null;
+      }
+    };
+  }
 }
 
 /** Cup generated class to encapsulate user supplied action code.*/
